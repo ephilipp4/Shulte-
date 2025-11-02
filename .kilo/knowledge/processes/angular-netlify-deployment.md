@@ -16,7 +16,7 @@ This document captures the complete process of preparing and deploying an Angula
 ```toml
 [build]
   command = "ng build --configuration production"
-  publish = "dist/shulte"
+  publish = "dist"
 
 [[redirects]]
   from = "/*"
@@ -26,7 +26,7 @@ This document captures the complete process of preparing and deploying an Angula
 
 **Key Settings:**
 - **Build Command**: `ng build --configuration production` - Production build with optimizations
-- **Publish Directory**: `dist/shulte` - Output directory for built files
+- **Publish Directory**: `dist` - Output directory for built files (corrected from `dist/shulte`)
 - **SPA Redirects**: All routes (`/*`) redirect to `index.html` with 200 status for client-side routing
 
 ### package.json Build Script
@@ -40,7 +40,7 @@ This document captures the complete process of preparing and deploying an Angula
 
 **Updated Build Script:**
 - Uses `--configuration production` flag for production optimizations
-- Generates optimized bundles in `dist/shulte` directory
+- Generates optimized bundles in `dist` directory
 
 ## Build Output Structure
 ```
@@ -58,16 +58,17 @@ dist/
 - [x] Set up SPA redirects for client-side routing
 - [x] Update `package.json` build script to use `--configuration production` flag
 - [x] Test local build successfully (`npm run build`)
-- [x] Verify build output in `dist/shulte` directory
+- [x] Verify build output in `dist` directory (corrected from `dist/shulte`)
 - [x] Prepare deployment instructions
 - [x] Fix critical error: Replace deprecated `--prod` flag with `--configuration production`
+- [x] Fix publish directory error: Changed from `dist/shulte` to `dist` (Angular default)
 - [x] Confirm local testing validates the fix
 
 ### 🔧 Technical Details
 
 **Angular Build Configuration:**
 - Production build with tree-shaking and minification
-- Output directory: `dist/shulte`
+- Output directory: `dist` (corrected from `dist/shulte`)
 - Uses Vite as build tool (Angular 17+)
 - Includes Tailwind CSS via CDN in production
 
@@ -82,13 +83,13 @@ dist/
 1. **Connect Repository**: Link GitHub/GitLab repository to Netlify
 2. **Build Settings**:
     - Build command: `ng build --configuration production`
-    - Publish directory: `dist/shulte`
+    - Publish directory: `dist`
 3. **Environment Variables**: Set any required environment variables
 4. **Deploy**: Push changes to trigger automatic deployment
 
 ### Manual Deployment:
 1. Run `npm run build` locally
-2. Upload `dist/shulte` folder contents to Netlify
+2. Upload `dist` folder contents to Netlify
 3. Configure redirect rules in Netlify dashboard if needed
 
 ## Common Issues & Solutions
@@ -123,7 +124,7 @@ dist/
 - **Created**: 2025-11-02
 - **Last Updated**: 2025-11-02
 - **Author**: Knowledge Manager
-- **Tags**: angular, netlify, deployment, spa, build-configuration, deprecated-flags
+- **Tags**: angular, netlify, deployment, spa, build-configuration, deprecated-flags, publish-directory-fix
 - **Related Files**: `netlify.toml`, `package.json`, `angular.json`
 - **Recent Updates**: Fixed critical `--prod` flag deprecation issue</instructions>
 </edit_file>
