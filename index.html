@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="description" content="Тренажер для развития скорости чтения по методике Шульте">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Шульте">
   <title>Вертикальное Чтение: Тренажер по Методике Шульте</title>
   <script src="https://cdn.tailwindcss.com"></script>
 <script type="importmap">
@@ -39,9 +44,11 @@
     animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
   }
 </style>
+  <link rel="manifest" href="manifest.webmanifest">
 </head>
 <body class="bg-slate-900 text-slate-200 antialiased">
   <app-root></app-root>
   <script type="module" src="index.tsx"></script>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
 </body>
 </html>
