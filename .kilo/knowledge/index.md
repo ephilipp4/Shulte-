@@ -6,7 +6,8 @@ This index provides organized access to all project knowledge, processes, and do
 ## Knowledge Categories
 
 ### 📁 Processes
-- **[Angular Netlify Deployment](processes/angular-netlify-deployment.md)** - Complete guide for deploying Angular applications to Netlify, including configuration files and troubleshooting
+- **[Angular Netlify Deployment](processes/angular-netlify-deployment.md)** - Complete guide for deploying Angular applications to Netlify, including configuration files, troubleshooting, and recent fixes for deprecated flags
+- **[GitHub Preparation](processes/github-preparation.md)** - Complete guide for preparing the project for GitHub publication, including repository setup, documentation, and licensing
 
 ### 🔍 Discoveries
 *Coming soon - Analysis results and findings*
@@ -35,6 +36,12 @@ This index provides organized access to all project knowledge, processes, and do
 
 ### Deployment
 - [Netlify Deployment Guide](processes/angular-netlify-deployment.md) - Complete deployment process
+- [GitHub Preparation Guide](processes/github-preparation.md) - Repository setup and documentation
+
+### Repository Management
+- [.gitignore Configuration](`.gitignore:1`) - Version control exclusions
+- [README.md](`README.md:1`) - Project documentation
+- [LICENSE](`LICENSE:1`) - MIT license terms
 
 ## Search Tags
 - `angular` - Angular framework documentation
@@ -42,10 +49,15 @@ This index provides organized access to all project knowledge, processes, and do
 - `deployment` - Build and deployment processes
 - `spa` - Single Page Application configuration
 - `build-configuration` - Build tool settings
+- `deprecated-flags` - Issues with outdated Angular CLI flags
+- `github` - Repository management and setup
+- `documentation` - Project documentation and README
+- `licensing` - Open source licensing and legal
+- `gitignore` - Version control exclusions and best practices
 
 ## Maintenance
 - **Last Updated**: 2025-11-02
-- **Total Documents**: 1
+- **Total Documents**: 2
 - **Knowledge Health**: 🟢 Good (All documents current and relevant)
 
 ## Contributing

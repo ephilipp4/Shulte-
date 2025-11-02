@@ -15,7 +15,7 @@ This document captures the complete process of preparing and deploying an Angula
 ### netlify.toml
 ```toml
 [build]
-  command = "ng build --prod"
+  command = "ng build --configuration production"
   publish = "dist/shulte"
 
 [[redirects]]
@@ -25,7 +25,7 @@ This document captures the complete process of preparing and deploying an Angula
 ```
 
 **Key Settings:**
-- **Build Command**: `ng build --prod` - Production build with optimizations
+- **Build Command**: `ng build --configuration production` - Production build with optimizations
 - **Publish Directory**: `dist/shulte` - Output directory for built files
 - **SPA Redirects**: All routes (`/*`) redirect to `index.html` with 200 status for client-side routing
 
@@ -33,13 +33,13 @@ This document captures the complete process of preparing and deploying an Angula
 ```json
 {
   "scripts": {
-    "build": "ng build --prod"
+    "build": "ng build --configuration production"
   }
 }
 ```
 
 **Updated Build Script:**
-- Uses `--prod` flag for production optimizations
+- Uses `--configuration production` flag for production optimizations
 - Generates optimized bundles in `dist/shulte` directory
 
 ## Build Output Structure
@@ -56,10 +56,12 @@ dist/
 ### ✅ Completed Steps
 - [x] Configure `netlify.toml` with build command and publish directory
 - [x] Set up SPA redirects for client-side routing
-- [x] Update `package.json` build script to use `--prod` flag
+- [x] Update `package.json` build script to use `--configuration production` flag
 - [x] Test local build successfully (`npm run build`)
 - [x] Verify build output in `dist/shulte` directory
 - [x] Prepare deployment instructions
+- [x] Fix critical error: Replace deprecated `--prod` flag with `--configuration production`
+- [x] Confirm local testing validates the fix
 
 ### 🔧 Technical Details
 
@@ -79,8 +81,8 @@ dist/
 ### For Team Members:
 1. **Connect Repository**: Link GitHub/GitLab repository to Netlify
 2. **Build Settings**:
-   - Build command: `ng build --prod`
-   - Publish directory: `dist/shulte`
+    - Build command: `ng build --configuration production`
+    - Publish directory: `dist/shulte`
 3. **Environment Variables**: Set any required environment variables
 4. **Deploy**: Push changes to trigger automatic deployment
 
@@ -95,6 +97,12 @@ dist/
 - **Issue**: Build command fails
 - **Solution**: Ensure all dependencies are installed (`npm install`)
 - **Check**: Verify Node.js version compatibility with Angular 20
+
+### Deprecated Flag Issues
+- **Issue**: `--prod` flag deprecated in newer Angular versions
+- **Solution**: Use `--configuration production` instead of `--prod`
+- **Impact**: Critical - prevents successful builds on Netlify
+- **Prevention**: Always use modern Angular CLI syntax
 
 ### Routing Issues
 - **Issue**: 404 errors on page refresh
@@ -115,6 +123,7 @@ dist/
 - **Created**: 2025-11-02
 - **Last Updated**: 2025-11-02
 - **Author**: Knowledge Manager
-- **Tags**: angular, netlify, deployment, spa, build-configuration
-- **Related Files**: `netlify.toml`, `package.json`, `angular.json`</instructions>
+- **Tags**: angular, netlify, deployment, spa, build-configuration, deprecated-flags
+- **Related Files**: `netlify.toml`, `package.json`, `angular.json`
+- **Recent Updates**: Fixed critical `--prod` flag deprecation issue</instructions>
 </edit_file>
