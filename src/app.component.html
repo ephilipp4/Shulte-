@@ -1,0 +1,180 @@
+<div class="flex flex-col items-center justify-center min-h-screen p-4 sm:p-6 md:p-8 font-sans relative">
+  
+  @if (instructionsVisible()) {
+    <div class="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50 fade-in-screen" (click)="hideInstructions()">
+      <div class="bg-slate-800 border border-slate-700 rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative" (click)="$event.stopPropagation()">
+        <button (click)="hideInstructions()" class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors z-10">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <h2 class="text-3xl font-bold text-sky-400 mb-6 text-center">Глубокое Погружение в Методику</h2>
+        
+        <div class="space-y-6 text-slate-300">
+          <div>
+            <h3 class="text-2xl font-semibold text-amber-400 mb-2">Что конкретно делать?</h3>
+            <p class="mb-3">Ваша цель — не просто найти числа, а сделать это <strong class="text-white">осознанно</strong>, тренируя зрительные навыки.</p>
+            <ul class="list-disc list-inside space-y-2 pl-2">
+              <li><strong class="text-sky-300">Этап 1 (Периферическое зрение):</strong> Не двигайте глазами! Сфокусируйтесь строго на центральной синей ячейке. Ваша задача — не искать числа, а <strong class="text-white">расфокусировать зрение</strong> и боковым зрением одновременно удерживать в поле видимости все четыре угловых желтых ячейки. Постарайтесь увидеть всю таблицу целиком.</li>
+              <li><strong class="text-sky-300">Этап 2 (Вертикальное сканирование):</strong> Снова сфокусируйтесь на центре. Не "рыская" глазами по таблице, старайтесь находить числа по порядку (1, 2, 3...), двигая взгляд как можно меньше, в идеале — только по центральной вертикали. Это учит мозг "выхватывать" нужную информацию периферическим зрением.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold text-amber-400 mb-2">Зачем это нужно?</h3>
+            <p class="mb-3">Это не тест на скорость, а <strong class="text-white">гимнастика для глаз и мозга</strong>. Основные цели:</p>
+            <ul class="list-disc list-inside space-y-2 pl-2">
+              <li><strong class="text-sky-300">Расширение поля зрения:</strong> Умение видеть не одно слово, а целую строку или абзац — ключевой навык скорочтения. Этап 1 напрямую тренирует эту способность.</li>
+              <li><strong class="text-sky-300">Развитие навыка поиска:</strong> Этап 2 учит мозг быстро находить нужную информацию в большом объеме данных, не читая все подряд. Это полезно при работе с документами и поиске ключевых слов.</li>
+              <li><strong class="text-sky-300">Подавление субвокализации:</strong> Субвокализация — это привычка мысленно проговаривать текст при чтении, что замедляет вас до скорости речи. Концентрация на поиске чисел помогает "отключить" внутреннего диктора.</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="text-2xl font-semibold text-amber-400 mb-2">Как это работает?</h3>
+            <p>При обычном чтении наши глаза совершают короткие скачки (саккады) от слова к слову. Это медленный и неэффективный процесс. Тренажер Шульте <strong class="text-white">ломает этот привычный паттерн</strong>. Заставляя вас концентрироваться на центре и использовать периферическое зрение, он формирует новый, более эффективный способ зрительного восприятия — <strong class="text-white">вертикальное сканирование</strong>. Ваш мозг учится обрабатывать информацию со всей страницы сразу, что и приводит к многократному увеличению скорости чтения.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+
+  <main class="w-full max-w-4xl mx-auto flex flex-col items-center">
+
+    @switch (gameState()) {
+      @case ('welcome') {
+        <div class="fade-in-screen text-center bg-slate-800/50 p-8 rounded-2xl shadow-2xl border border-slate-700 w-full max-w-2xl">
+          <h1 class="text-4xl sm:text-5xl font-bold text-sky-400 mb-4">Тренажер Вертикального Чтения</h1>
+          <p class="text-lg text-slate-300 mb-6">Улучшите скорость чтения с помощью методики Шульте.</p>
+          
+          <div class="text-left bg-slate-900 p-6 rounded-lg mb-6 border border-slate-700">
+            <h2 class="text-2xl font-semibold text-amber-400 mb-3">Инструкции</h2>
+            <ol class="list-decimal list-inside space-y-2 text-slate-300">
+              <li>Расположитесь удобно, на расстоянии <strong>30-35 см</strong> от экрана.</li>
+              <li>Тренировка состоит из двух этапов, предназначенных для расширения вашего периферического зрения и развития навыков вертикального сканирования.</li>
+              <li>Следуйте инструкциям на экране для каждого этапа.</li>
+            </ol>
+          </div>
+          
+          <div class="text-center mb-8">
+            <button (click)="showInstructions()" class="text-sky-400 hover:text-sky-300 underline transition-colors text-lg">
+              Подробнее о методике и упражнениях
+            </button>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 mb-8">
+              <div class="space-y-2 text-left">
+                <label for="stage1-duration" class="block font-medium text-slate-300">Длительность Этапа 1: <span class="font-bold text-sky-400">{{ stage1DurationMinutes() }} мин</span></label>
+                <input id="stage1-duration" type="range" min="1" max="15" [value]="stage1DurationMinutes()" (input)="updateStage1Duration($event)" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-sky-500">
+              </div>
+              <div class="space-y-2 text-left">
+                <label for="stage2-duration" class="block font-medium text-slate-300">Длительность Этапа 2: <span class="font-bold text-sky-400">{{ stage2DurationSeconds() }} сек</span></label>
+                <input id="stage2-duration" type="range" min="15" max="60" [value]="stage2DurationSeconds()" (input)="updateStage2Duration($event)" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-sky-500">
+              </div>
+               <div class="space-y-2 text-left md:col-span-2">
+                <label for="table-size" class="block font-medium text-slate-300">Размер таблицы: <span class="font-bold text-sky-400">{{ tableSize() }} x {{ tableSize() }}</span></label>
+                <input id="table-size" type="range" min="3" max="7" step="2" [value]="tableSize()" (input)="updateTableSize($event)" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-sky-500">
+              </div>
+          </div>
+
+          <button (click)="startTraining()" class="w-full bg-sky-600 hover:bg-sky-500 text-white font-bold py-3 px-6 rounded-lg text-xl transition-transform duration-200 hover:scale-105">
+            Начать Тренировку
+          </button>
+        </div>
+      }
+      @case ('stage1') {
+        <div class="w-full flex flex-col items-center fade-in-screen">
+          <div class="w-full max-w-lg text-center bg-slate-800/50 p-4 rounded-xl shadow-lg border border-slate-700 mb-6">
+            <h2 class="text-2xl font-bold text-sky-400">Этап 1: Периферическое зрение</h2>
+            <p class="text-slate-300 mt-1">Сфокусируйтесь на центральном синем квадрате. Используйте боковое зрение, чтобы видеть угловые желтые квадраты.</p>
+            <div class="text-5xl font-mono tracking-widest text-amber-300 mt-4">{{ formatTime(timer()) }}</div>
+          </div>
+          <div class="grid gap-2 w-full max-w-xl aspect-square" [style.gridTemplateColumns]="'repeat(' + tableSize() + ', minmax(0, 1fr))'">
+            @for (row of table(); track row) {
+              @for (cell of row; track cell.value) {
+                <div 
+                  class="flex items-center justify-center text-4xl font-bold border-2 rounded-lg transition-all duration-300 ease-in-out"
+                  [class.bg-slate-800]="!cell.isCenter && !cell.isCorner"
+                  [class.border-slate-600]="!cell.isCenter && !cell.isCorner"
+                  [class.bg-blue-900/50]="cell.isCenter"
+                  [class.border-blue-400]="cell.isCenter"
+                  [class.scale-105]="cell.isCenter"
+                  [class.shadow-lg]="cell.isCenter"
+                  [class.shadow-blue-500/30]="cell.isCenter"
+                  [class.bg-amber-800/50]="cell.isCorner"
+                  [class.border-amber-400]="cell.isCorner"
+                >{{ cell.value }}</div>
+              }
+            }
+          </div>
+           <div class="mt-6 flex items-center gap-4">
+            <button (click)="resetToWelcome()" class="bg-slate-700 hover:bg-slate-600 text-white font-bold py-2 px-5 rounded-lg transition-colors duration-200">
+              Выйти в меню
+            </button>
+            <button (click)="startStage2()" class="bg-sky-600 hover:bg-sky-500 text-white font-bold py-2 px-5 rounded-lg transition-colors duration-200">
+              Пропустить к этапу 2 &rarr;
+            </button>
+          </div>
+        </div>
+      }
+      @case ('stage2') {
+        <div class="w-full flex flex-col items-center fade-in-screen">
+          <div class="w-full max-w-lg text-center bg-slate-800/50 p-4 rounded-xl shadow-lg border border-slate-700 mb-6">
+            <h2 class="text-2xl font-bold text-sky-400">Этап 2: Вертикальное сканирование</h2>
+            <p class="text-slate-300 mt-1">Нажимайте на числа последовательно как можно быстрее.</p>
+            <div class="flex justify-around items-center mt-4">
+              <div class="text-lg">Цель: <span class="text-4xl font-bold text-emerald-400 ml-2">{{ targetNumber() }}</span></div>
+              <div class="text-5xl font-mono tracking-widest text-amber-300">{{ formatTime(timer()) }}</div>
+            </div>
+            <div class="w-full bg-slate-700 rounded-full h-2.5 mt-4">
+              <div class="bg-emerald-500 h-2.5 rounded-full transition-all duration-300" [style.width.%]="progress()"></div>
+            </div>
+          </div>
+          <div class="grid gap-2 w-full max-w-xl aspect-square" [style.gridTemplateColumns]="'repeat(' + tableSize() + ', minmax(0, 1fr))'">
+            @for (row of table(); track row) {
+              @for (cell of row; track cell.value) {
+                <button (click)="handleCellClick(cell)" [disabled]="cell.isFound"
+                  class="flex items-center justify-center text-4xl font-bold border-2 rounded-lg transition-all duration-200 ease-in-out"
+                  [class.shake-anim]="wrongClickCell() === cell.value"
+                  [class.bg-emerald-700]="cell.isFound"
+                  [class.border-emerald-500]="cell.isFound"
+                  [class.text-slate-900]="cell.isFound"
+                  [class.transform]="cell.isFound"
+                  [class.scale-95]="cell.isFound"
+                  [class.opacity-70]="cell.isFound"
+                  [class.cursor-not-allowed]="cell.isFound"
+                  [class.bg-slate-800]="!cell.isFound"
+                  [class.border-slate-600]="!cell.isFound"
+                  [class.hover:bg-slate-700]="!cell.isFound"
+                  [class.hover:border-sky-400]="!cell.isFound"
+                  [class.cursor-pointer]="!cell.isFound"
+                >
+                  {{ cell.value }}
+                </button>
+              }
+            }
+          </div>
+          <div class="mt-6 flex items-center gap-4">
+            <button (click)="resetToWelcome()" class="bg-slate-700 hover:bg-slate-600 text-white font-bold py-2 px-5 rounded-lg transition-colors duration-200">
+              Выйти в меню
+            </button>
+            <button (click)="showResults()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 px-5 rounded-lg transition-colors duration-200">
+              Завершить
+            </button>
+          </div>
+        </div>
+      }
+      @case ('results') {
+        <div class="fade-in-screen text-center bg-slate-800/50 p-8 rounded-2xl shadow-2xl border border-slate-700 w-full max-w-2xl">
+          <h1 class="text-4xl sm:text-5xl font-bold text-sky-400 mb-4">Тренировка Завершена!</h1>
+          <p class="text-2xl text-slate-300 mb-8">
+            Вы нашли <span class="font-bold text-emerald-400 text-3xl">{{ foundCount() }}</span> из <span class="font-bold text-slate-100 text-3xl">{{ totalCells() }}</span> чисел.
+          </p>
+          <button (click)="resetToWelcome()" class="w-full bg-sky-600 hover:bg-sky-500 text-white font-bold py-3 px-6 rounded-lg text-xl transition-transform duration-200 hover:scale-105">
+            Тренироваться Снова
+          </button>
+        </div>
+      }
+    }
+  </main>
+</div>
